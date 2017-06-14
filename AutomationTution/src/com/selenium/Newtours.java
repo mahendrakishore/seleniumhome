@@ -15,10 +15,11 @@ public class Newtours {
 	@Test
 	public void test1() {
 		// TODO Auto-generated method stub
-		System.setProperty("webdriver.chrome.driver", Config.chrome());
+		Config config = new Config("./src/com/config/Config.properties");
+		System.setProperty("webdriver.chrome.driver", config.chrome());
 		 driver = new ChromeDriver();
 		driver.navigate().refresh();
-		driver.get(Config.url());
+		driver.get(config.url());
 		driver.findElement(By.name("userName")).sendKeys("batman");
 		driver.findElement(By.name("")).sendKeys("");
 		driver.findElement(By.name("")).click();

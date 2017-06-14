@@ -8,9 +8,9 @@ import java.util.Properties;
 import org.testng.annotations.Test;
 
 public class Config {
-	static Properties properties ;
-	 static{		
-		try{File file  = new File("./src/com/config/Config.properties");
+	 Properties properties ;
+	public  Config(String path){		
+		try{File file  = new File(path); //./src/com/config/Config.properties
 		FileInputStream fis = new FileInputStream(file);
 		 properties = new Properties();
 		properties.load(fis);
@@ -19,23 +19,28 @@ public class Config {
 		System.out.println("config file exception");
 	}}
 
-	public static String firefox(){
+	public  String firefox(){
 	String path =	properties.getProperty("FirefoxDriver");
 		return path;
 	}
 	
-	public static String chrome(){
+	public String chrome(){
 		String path = properties.getProperty("ChromeDriver");
 		return path;
 	}
 	
-	public static String ie(){
+	public  String ie(){
 		String path = properties.getProperty("IEDriver");
 		return path;
 	}
 	
-	public static String url(){
+	public  String url(){
 		String url = properties.getProperty("Url");
 		return url ;
+	}
+	
+	public String excel(){
+		String excelpath = properties.getProperty("Excelpath");
+		return excelpath;
 	}
 }
